@@ -1,0 +1,48 @@
+.viewFilter{
+  margin-top: 27px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: flex-end;
+
+  &__item{
+    width: 32px;
+    height: 32px;
+    .part{
+      z-index: -1;
+    }
+    &-active{
+      .part{
+        background-color: $dark !important
+      }
+    }
+  }
+
+  &__tile{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-right: 12px;
+
+    .tile__part{
+      width: 14px;
+      height: 14px;
+      background: $disable_view_filter;
+      &:nth-child(1){
+        margin-bottom: 3px;
+      }
+    }
+  }
+  &__line{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .line__part{
+      height: 4px;
+      width: 100%;
+      background-color: $disable_view_filter;
+    }
+  }
+  
+  
+}

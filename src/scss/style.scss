@@ -1,0 +1,17 @@
+@import './colors.scss';
+@import './fonts.scss';
+@import '../components/header/header.scss';
+@import '../components/search_form/search_form.scss';
+@import '../components/footer/footer.scss';
+@import '../components/viewFilter/viewFilter.scss';
+@import './container.scss';
+@import '../components/repos/reposLine/reposLine.scss';
+@import '../components/repos/repos.scss';
+@import '../components/repos/ReposLanguagesTag/reposLanguagesTag.scss';
+@import '../components/repos/reposTile/reposTile.scss';
+@import '../components/MyList/myList.scss';
+
+.body{
+  min-height: 100vh;
+  position: relative; 
+}

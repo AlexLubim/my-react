@@ -1,0 +1,19 @@
+.reposLine{
+  width: 100%;
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 39px;
+  padding-left: 34px;
+  border-top: 1px solid $borderTop_reposLine;
+
+  
+
+  &__keysLang{
+    position: absolute;
+    right: 21px;
+    bottom: 14px;
+    font-size: 14px;
+    line-height: 17px;
+    color:$reposKeyLang;
+  }
+}

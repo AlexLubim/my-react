@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {
+  Route,
+  Switch,
+  Redirect,
+  withRouter
+} from "react-router-dom"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Search from './components/Search/Search'
+import MyList from './components/MyList/MyList'
+
+
+class App extends React.Component{
+  render(){
+    const {history} = this.props
+    return(
+      <Switch>
+        <Route history={history} path='/mylist' component={MyList} /> 
+        <Route history={history} path='/search' component={Search} />
+        <Redirect from='/' to='/search'/>
+      </Switch>
+    )
+  }
 }
 
-export default App;
+export default withRouter(App);

@@ -1,0 +1,42 @@
+.reposTile{
+  position: relative;
+  width: 410px;
+  border:1px solid $reposTile__border;
+  margin-bottom: 29px;
+  padding-top: 88px;
+  padding-left: 41px;
+  padding-bottom: 125px;
+  box-shadow: 0 2px 3px rgba(#000000,0.25);
+
+
+  &:nth-child(even){
+    margin-right: 53px;
+  }
+
+  &:nth-child(odd){
+    margin-left: 53px;
+  }
+
+  &__keysLang{
+    position: absolute;
+    top: 24px;
+    left: 41px;
+    font-size: 14px;
+    line-height: 17px;
+    color:$reposKeyLang;
+  }
+
+  &__button{
+    position: absolute;
+    bottom: 36px;
+    left: 141px;
+    border:none;
+    background-color: $blue;
+    padding: 9px 23px;
+    color:#fff;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 2px 3px rgba(#000000,0.25);
+  }
+}
+

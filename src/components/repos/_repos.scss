@@ -1,0 +1,85 @@
+.reposList{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+}
+.repos{
+  position: relative;
+
+  &__title{
+    color:$blue;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 3px;
+    word-wrap: break-word;
+  }
+  &__description{
+    width: 80%;
+    margin-bottom: 21px;
+  }
+
+  &__name{
+    position: relative;
+    
+    .reposCheckbox{
+      position: absolute;
+      left: -34px;
+      top: 3px;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border:1px solid $blue;
+      padding: 4px 3px 4px 4px ;
+
+      &:checked{
+        background-color: $blue;
+        background-clip: content-box;
+        // background-position: center;
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+  }
+
+  &__rating{
+    position: absolute;
+    display: flex;
+    align-items: center;  
+    right: 33px;
+    top: 20px;
+  }
+  &__starSvg{
+    margin-right: 9px;
+  }
+  
+}
+
+.notFound{
+  padding-top: 70px;
+  position: relative;
+  text-align: center;
+  height: 62.9vh;
+  display: flex;
+  justify-content: center;
+
+  &__img{
+    position: absolute;
+    top:2%;
+  }
+
+  p{
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 400;
+  }
+}
+.noResultBlue{
+  display: block;
+  color:$blue;
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 700;
+}
