@@ -1,6 +1,6 @@
 import {TOGGLEVIEW} from '../types'
 const initialState ={
-  view:'line'
+  viewLine:true
 }
 
 export const viewReducer = (state=initialState,action) => {
@@ -8,7 +8,7 @@ export const viewReducer = (state=initialState,action) => {
     case TOGGLEVIEW:
       return{
         ...state,
-        view:action.payload
+        viewLine:action.payload
       }
     default:return state
   }

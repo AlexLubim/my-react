@@ -5,10 +5,10 @@
 @import '../components/footer/footer.scss';
 @import '../components/viewFilter/viewFilter.scss';
 @import './container.scss';
-@import '../components/repos/reposLine/reposLine.scss';
-@import '../components/repos/repos.scss';
-@import '../components/repos/ReposLanguagesTag/reposLanguagesTag.scss';
-@import '../components/repos/reposTile/reposTile.scss';
+@import '../components/reposCard/reposLineCard.scss';
+@import '../components/reposCard/repos.scss';
+@import '../components/ReposLanguagesTag/reposLanguagesTag.scss';
+@import '../components/reposCard/reposTileCard.scss';
 @import '../components/MyList/myList.scss';
 
 .body{

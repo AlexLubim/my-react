@@ -2,12 +2,18 @@ import {FETCHREPOS,KEYLANGUAGE,TOGGLEVIEW} from '../types'
 
 const takeDataAPI = (formData) => {
   return (async(dispatch)=>{
-    const queryString = '?q=' + encodeURIComponent(`languages:${formData.language}`)
-    const request = await fetch(`https://api.github.com/search/repositories${queryString}`,{
-      q:queryString
-    })
-    const json = await request.json()
-    dispatch({type:FETCHREPOS,payload:json})
+    try{
+      const queryString = '?q=' + encodeURIComponent(`languages:${formData.language}`)
+      const request = await fetch(`https://api.github.com/search/repositories${queryString}`,{
+        q:queryString
+      })
+      const json = await request.json()
+      dispatch({type:FETCHREPOS,payload:json})
+    }catch(e){
+      console.log(e);
+    }
+    
+    
   })
 }
 const keyLang = (lang) => {

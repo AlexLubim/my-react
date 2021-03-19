@@ -8,7 +8,7 @@ const Tile = (props)=>{
     clasesTile += " viewFilter__item-active"
   }
   const click =() =>{
-    props.toggleView("tile")
+    props.toggleView(false)
   }
   return(
     <div className={clasesTile} onClick={click}>

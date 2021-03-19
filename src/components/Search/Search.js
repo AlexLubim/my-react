@@ -14,7 +14,7 @@ const Search = (props) =>{
       <div className="container">
         <SearchForm />
         <ViewFilter />
-        <Repositories  view={props.app.view} repos={props.form.repositories} lang={props.form.keyLang}/>
+        <Repositories  view={props.app.viewLine} repos={props.form.repositories} lang={props.form.keyLang}/>
       </div>
       <Footer/> 
     </div>

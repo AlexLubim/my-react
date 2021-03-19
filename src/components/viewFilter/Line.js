@@ -8,7 +8,7 @@ const Line = (props)=>{
     clasesTile += " viewFilter__item-active"
   }
   const click =() =>{
-    props.toggleView("line")
+    props.toggleView(true)
   }
   return(
     <div className={clasesTile} onClick={click}>
