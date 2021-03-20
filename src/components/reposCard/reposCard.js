@@ -1,35 +1,68 @@
-import {useState} from 'react'
-import reposStarSvg from '../repos/reposStar.svg'
-import ReposTag from '../ReposLanguagesTag/ReposLanguagesTag'
+import { useState } from 'react';
+import reposStarSvg from '../repos/reposStar.svg';
+import ReposTag from '../ReposLanguagesTag/ReposLanguagesTag';
+import {connect} from 'react-redux';
+import {addFavoriteRep} from '../../redux/actions/actions';
 
-const ReposCard = ({reposItem,lang,view,id}) => {
-  const [{stateFavorit,setFavor}] = useState({
+
+const ReposCard = (props) => {
+  const {
+    form:{repositories,favoriteRep},
+    view,
+    id,
+    addFavoriteRepFunc,
+    reposItem:{favorite,description,name,stargazers_count,keyLang}
+  } = props;
+
+  const [stateFavorit,setFavor] = useState({
     idRep:id,
-    favorite:false
   });
-
+  
   const toggleCheckbox = ()=>{
-    console.log(stateFavorit);
-  }
+    function favorit(repos,favors){
+      const favorite = repos.map(item => {
+        if(item.id === stateFavorit.idRep){
+          item.favorite = !item.favorite
+        }
+        return item
+      })
+      const finalFavorit = favorite.filter(item => (item.favorite))
 
+      return finalFavorit
+    }
+    addFavoriteRepFunc(favorit(repositories,favoriteRep))
+  }
   return(
     <div className={view ? "reposLine":"reposTile" + " repos"}>
       <div className="repos__name">
-        {view ? <input type="checkbox" className="reposCheckbox" onClick={toggleCheckbox}></input>:null}
-        <span className={"repos__title " + (view ? "reposLine__title":"reposTile__title")}>{reposItem.name}</span>
-        <p className="repos__description">{reposItem.description}</p>
+        {(view) ? 
+        <input type="checkbox" className="reposCheckbox" defaultChecked={favorite} onClick={toggleCheckbox}></input>:null
+        }
+        <span className={"repos__title " + (view ? "reposLine__title":"reposTile__title")}>{name}</span>
+        <p className="repos__description">{description}</p>
       </div>
       <div className="repos__tag">
-        <ReposTag lang={lang}/>
+        <ReposTag lang={keyLang}/>
       </div>
-      {view ? null: <button className="reposTile__button">ADD TO LIST</button>}
+      {view ? null: <button 
+        className={(favorite ? "reposTile__button-active":"")+" reposTile__button"}
+        onClick={toggleCheckbox}>
+          {favorite ? "REMOVE FROM LIST":"ADD TO LIST"}
+        </button>}
       <div className="repos__rating">
         <img src={reposStarSvg} className="repos__starSvg"></img>
-        <span>{reposItem.stargazers_count}</span>
+        <span>{stargazers_count}</span>
       </div>
-      <span className={view ? "reposLine__keysLang":"reposTile__keysLang"}>{lang}</span>
+      <span className={view ? "reposLine__keysLang":"reposTile__keysLang"}>{keyLang}</span>
     </div>
   )
 }
 
-export {ReposCard}
+const mapStateToProps = store =>{
+  return store
+}
+
+const mapDispatchToProps = {
+  addFavoriteRepFunc: addFavoriteRep
+}
+export default connect(mapStateToProps,mapDispatchToProps)(ReposCard)

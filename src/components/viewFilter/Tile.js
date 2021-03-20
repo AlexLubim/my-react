@@ -4,7 +4,7 @@ import {toggleView} from '../../redux/actions/actions'
 
 const Tile = (props)=>{
   let clasesTile = "viewFilter__tile viewFilter__item"
-  if(props.view === "tile"){
+  if(!props.view){
     clasesTile += " viewFilter__item-active"
   }
   const click =() =>{

@@ -18,14 +18,11 @@ class SearchForm extends Component{
     event.preventDefault()
     if(this.state.language){
       this.props.takeDataAPI(this.state);
-      this.props.keyLang(this.state.language);
     }
   }
 
-  changeInput(event){
-    this.setState(()=>({
-      [event.target.name]: event.target.value
-    }))
+  changeInput({target:{name,value}}){
+    this.setState({[name]: value})
   }
 
   render(){

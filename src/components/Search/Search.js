@@ -8,13 +8,14 @@ import Repositories from '../repos/Repositories'
 
 
 const Search = (props) =>{
+  const {app:{viewLine},form:{repositories},location:{pathname}} = props
   return(
     <div className="body">
-      <Header/>
+      <Header pathname={pathname}/>
       <div className="container">
         <SearchForm />
         <ViewFilter />
-        <Repositories  view={props.app.viewLine} repos={props.form.repositories} lang={props.form.keyLang}/>
+        <Repositories  view={viewLine} repos={repositories}/>
       </div>
       <Footer/> 
     </div>

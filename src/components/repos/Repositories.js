@@ -1,11 +1,11 @@
 import React from 'react'
-import {ReposCard} from '../reposCard/reposCard'
+import ReposCard from '../reposCard/reposCard'
 
 
 import reposNotFound from './reposNotFound.svg'
 
 const Repositories = ({repos,lang,view})=>{
-    if(!repos){
+    if(!repos || repos.length === 0){
       return(
         <div className="notFound">
           <img src={reposNotFound} className="notFound__img"></img>
@@ -15,8 +15,7 @@ const Repositories = ({repos,lang,view})=>{
     }else{
       return (
         <div className="reposList">{
-          repos.items.map((item) =>
-            <ReposCard reposItem={item} lang={lang} id={item.id} key={item.id} view={view}/>
+          repos.map((item) => (item ? <ReposCard reposItem={item} id={item.id} key={item.id} view={view}/> :null)
         )}
         </div>)
     }

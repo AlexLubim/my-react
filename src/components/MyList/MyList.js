@@ -7,17 +7,17 @@ import Repositories from '../repos/Repositories'
 
 
 const MyList = (props) =>{
-  const { app: {view} } = props;
+  const { app,location:{pathname}} = props;
 
   return(
     <div className="body">
-      <Header/>
+      <Header pathname={pathname}/>
       <div className="container">
         <div className="myList">MyList</div>
         <ViewFilter />
         <Repositories  
-          view={props.app.view}
-          repos={props.form.repositories}
+          view={app.viewLine}
+          repos={props.form.favoriteRep}
           lang={props.form.keyLang}
         />
       </div>

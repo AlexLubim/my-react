@@ -1,18 +1,23 @@
-import {FETCHREPOS,KEYLANGUAGE,TOGGLEVIEW} from '../types'
+import {FETCHREPOS,KEYLANGUAGE,TOGGLEVIEW,FAVORITE,DELETEFAVORITE} from '../types'
 
-const takeDataAPI = (formData) => {
+const takeDataAPI = ({language}) => {
   return (async(dispatch)=>{
     try{
-      const queryString = '?q=' + encodeURIComponent(`languages:${formData.language}`)
+      const queryString = '?q=' + encodeURIComponent(`languages:${language}`)
       const request = await fetch(`https://api.github.com/search/repositories${queryString}`,{
         q:queryString
       })
       const json = await request.json()
-      dispatch({type:FETCHREPOS,payload:json})
+      
+      const repos = json.items.map(item => {
+        item.favorite = false;
+        item.keyLang = language;
+        return item;
+      })
+      dispatch({type:FETCHREPOS,payload:repos})
     }catch(e){
       console.log(e);
     }
-    
     
   })
 }
@@ -26,9 +31,13 @@ const toggleView = (viewType) => {
     {type:TOGGLEVIEW,payload:viewType}
   )
 }
-
+const addFavoriteRep = (favorRep) =>{
+  return({type:FAVORITE,payload:favorRep})
+}
+  
 export{
   takeDataAPI,
   toggleView,
-  keyLang
+  keyLang,
+  addFavoriteRep,
 };

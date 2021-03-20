@@ -7,8 +7,8 @@ import Line from './Line'
 const ViewFilter = (storeForm) =>{
   return(
     <div className="viewFilter">
-      <Tile view={storeForm.view} />
-      <Line view={storeForm.view} />
+      <Tile view={storeForm.viewLine} />
+      <Line view={storeForm.viewLine} />
     </div>
   )
 }

@@ -37,6 +37,13 @@
     font-size: 14px;
     text-align: center;
     box-shadow: 0 2px 3px rgba(#000000,0.25);
+    &:focus{
+      outline: none;
+    }
+    &-active{
+      background-color:$red_btn;
+      left: 115px;
+    }
   }
 }
 
