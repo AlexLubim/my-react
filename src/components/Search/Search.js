@@ -8,14 +8,14 @@ import Repositories from '../repos/Repositories'
 
 
 const Search = (props) =>{
-  const {app:{viewLine},form:{repositories},location:{pathname}} = props
+  const {app:{viewLine},form:{repositories,keyInputLang},location:{pathname}} = props
   return(
     <div className="body">
       <Header pathname={pathname}/>
       <div className="container">
         <SearchForm />
         <ViewFilter />
-        <Repositories  view={viewLine} repos={repositories}/>
+        <Repositories  view={viewLine} repos={repositories} keyInputLang={keyInputLang}/>
       </div>
       <Footer/> 
     </div>

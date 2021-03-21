@@ -1,6 +1,7 @@
 const initialState ={
   favoriteRep: [],
-  repositories:[]
+  repositories:[],
+  keyInputLang:""
 };
 
 import {FETCHREPOS,KEYLANGUAGE,FAVORITE} from '../types'
@@ -15,7 +16,7 @@ export const formReducer = (state=initialState,action) => {
     case KEYLANGUAGE:
       return{
         ...state,
-        keyLang:action.payload
+        keyInputLang:action.payload
       }
     case FAVORITE:
       return{

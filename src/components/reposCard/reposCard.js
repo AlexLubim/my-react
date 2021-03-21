@@ -10,23 +10,37 @@ const ReposCard = (props) => {
     form:{repositories,favoriteRep},
     view,
     id,
+    keyInputLang,
     addFavoriteRepFunc,
     reposItem:{favorite,description,name,stargazers_count,keyLang}
   } = props;
-
+  
   const [stateFavorit,setFavor] = useState({
     idRep:id,
   });
   
   const toggleCheckbox = ()=>{
+   
     function favorit(repos,favors){
-      const favorite = repos.map(item => {
+      const toggleFavorit = repos.map(item => {
         if(item.id === stateFavorit.idRep){
           item.favorite = !item.favorite
         }
         return item
       })
-      const finalFavorit = favorite.filter(item => (item.favorite))
+      favors.map(item => {
+        if(item.id === stateFavorit.idRep && !repos.includes(item)){
+          item.favorite = !item.favorite
+        }
+      })
+      const favorites = toggleFavorit.filter(item => (item.favorite))
+      const finalFavorit = favors.reduce((acc,item) => {
+        if(item.favorite && !acc.includes(item)){
+          return [...acc,item]
+        }else{
+          return acc
+        }
+      },favorites)
 
       return finalFavorit
     }

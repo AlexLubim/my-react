@@ -18,6 +18,7 @@ class SearchForm extends Component{
     event.preventDefault()
     if(this.state.language){
       this.props.takeDataAPI(this.state);
+      this.props.keyLang(this.state.language)
     }
   }
 
